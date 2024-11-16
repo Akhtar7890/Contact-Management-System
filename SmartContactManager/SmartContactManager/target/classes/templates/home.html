@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-th-replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>This is home page</title>
+</head>
+
+<body>
+
+<section class="banner d-flex justify-content-center align-items-center">
+    <div class="text-center">
+<!--    <h1 data-th-text="${name}">This is home page</h1>-->
+<!--    <p> YouTube Channel : <span th:text="${YouTube}"></span></p>-->
+<!--    <a data-th-href="${Leetcode}">Click Here to visit my leetcode account</a>-->
+
+        <h1 class="font-weight-bold">Smart Contact Manager</h1>
+        <p>Start Collecting your contacts in your smarter way. We provide very efficient and smarter way of handling contacts.</p>
+        <a data-th-href="@{/login}" class="btn bg-primary btn-lg text-white">Get Start</a>
+    </div>
+</section>
+</body>
+</html>

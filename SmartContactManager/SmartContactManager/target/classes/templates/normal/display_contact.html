@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-th-replace="~{normal/userBase::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+<section>
+    <div class="card mr-3 ml-3">
+        <div class="card-body">
+            <h1 class="text-center">Your Contacts</h1>
+
+<!--            search result container-->
+            <div class="search-container my-3">
+                <input onkeyup="search()" id="search-input" type="text" class="form-control" placeholder="search your contact">
+
+                <div class="search-result">
+
+                </div>
+            </div>
+
+            <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">E-Mail</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+
+                <tbody>
+                        <tr data-th-each="e : ${contacts}">
+                            <th scope="row" data-th-text="${'SCMUSER'+e.c_id}">1</th>
+                            <td>
+                                <img src="" class="my_profile_picture" data-th-src="@{'/image/'+${e.image}}">
+                                <span data-th-text="${e.name}"></span></td>
+
+                            <td>
+                                <a href="#" data-th-href="@{'/user/contact/'+${e.c_id}}">
+                                    <span data-th-text="${e.email}"></span></a>
+                            </td>
+
+                            <td data-th-text="${e.phone}"></td>
+                            <td>
+                                <a href="#" data-th-onclick="|deleteContact(${e.c_id})|" class="btn btn-danger btn-sm">Delete</a>
+                                <br>
+
+                                <form action="#" data-th-action="@{'/user/update_contact/'+${e.c_id}}" method="post" class="mt-2">
+
+                                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+
+                                </form>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <!--Pagination part--->
+
+            <nav aria-label="Page navigation example">
+
+                <ul class="pagination">
+
+                    <li data-th-if="${currentPage!=0}" class="page-item">
+                        <a data-th-href="@{'/user/display_contact/' + ${currentPage-1}}" class="page-link" href="#" aria-label="Previous">Previous</a></li>
+
+                    <li data-th-each="i : ${#numbers.sequence(1,totalPages)}" data-th-classappend="${currentPage==i-1?'active':''}" class="page-item">
+                        <a data-th-href="@{'/user/display_contact/' + ${i-1}}" class="page-link" href="#"><span data-th-text="${i}"></span></a></li>
+
+                    <li data-th-if="${currentPage+1 != totalPages}" class="page-item">
+                        <a data-th-href="@{'/user/display_contact/'+${currentPage+1}}" class="page-link" href="#" aria-label="Next">Next</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-th-replace="~{normal/userBase::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+
+<section>
+
+    <div class="card mr-3 ml-2">
+        <div class="card-body">
+            <h1 class="text-center">Add Contact</h1>
+            <div class="container-fluid mt-1">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <form action="#"  data-th-action="@{/user/process_contact}" method="post"
+                              enctype="multipart/form-data" data-th-object="${contact}" class="mt-2">
+
+
+                            <!--First Name--->
+                            <div class="input-group">
+                                <div class="input-group-prepared">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </div>
+                                <input required type="text" id="firstName" name="name" placeholder="First Name" class="form-control">
+                            </div>
+
+
+                            <!--Second Name--->
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepared">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa fa-user-alt"></i>
+                                    </div>
+                                </div>
+                                <input required type="text" id="secondName" name="secondName" placeholder="Second Name" class="form-control">
+                            </div>
+
+                            <!--Phone-->
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepared">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                </div>
+                                <input required min="10" type="number" id="phone" name="phone" placeholder="Phone Number" class="form-control">
+                            </div>
+
+                            <!--Email-->
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepared">
+                                    <div class="input-group-text mr-2">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <input required type="email" id="email" name="email" placeholder="Email" class="form-control">
+                            </div>
+
+                            <!--Description---->
+                            <div class="form-group mt-3">
+                                <textarea maxlength="200" name="description" id="description" class="form-control" rows="10" placeholder="Enter Description"></textarea>
+                            </div>
+
+                            <!---Contact Image---->
+                            <div class="custom-file">
+                                <input type="file" name="image">
+                            </div>
+
+                            <!-- Button-->
+                            <div class="container text-center">
+                                <button class="btn btn-outline-primary">Save Contact</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

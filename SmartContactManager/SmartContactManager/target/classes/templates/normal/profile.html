@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-th-replace="~{normal/userBase::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+<section>
+    <div class="container">
+
+        <div class="card text-center">
+            <div class="card-body">
+
+                <div class="container text-center">
+                    <img src="" style="height:200px; width:200px;" class="my_profile_picture"
+                         data-th-src="@{'/image/'+${user.imageUrl}}">
+                </div>
+
+                <h1 class="text-center mt-3" data-th-text="${user.name}"></h1>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#USERID</th>
+                        <th scope="col"><span data-th-text="${user.id}"></span></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <th scope="row">E-Mail</th>
+                        <td><span data-th-text="${user.email}"></span></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Role</th>
+                        <td><span data-th-text="${user.role}"></span></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Account Active</th>
+                        <td><span data-th-text="${user.enabled}"></span></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">About</th>
+                        <td><span data-th-text="${user.about}"></span></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

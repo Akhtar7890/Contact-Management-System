@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" data-th-replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="my-card">
+
+                    <!---Message box--->
+                    <div data-th-if="${session.message}" class="container">
+                        <div data-th-classappend="${session.message.type}" class="alert text-center" role="alert">
+                            <span data-th-text="${session.message.content}"></span>
+                        </div>
+                    </div>
+
+                    <!---Registration  Logo--->
+                    <div class="container text-center">
+                        <img style="width:70px" src="" data-th-src="@{/image/contract.png}" alt="">
+                    </div>
+
+
+                    <h1 class="text-center"> Register Here !!</h1>
+
+                    <form action="#" data-th-action="@{/do_register}" method="post" data-th-object="${user}">
+
+                    <!-- Name field-->
+                        <div class="mb-3">
+                            <label for="name-field" class="form-label">Name</label>
+                            <input name="name" type="text" class="form-control"
+                                   data-th-field="*{name}" id="name-field" placeholder="Enter here" required
+                                   data-th-classappend="${#fields.hasErrors('name')?'is-invalid':''} "
+                                   data-th-value="${user.name}">
+
+                                  <div class="invalid-feedback"
+                                       data-th-if="${#fields.hasErrors('name')}"
+                                       data-th-text="${#fields.errors('name')}"
+                                       style="display:block;">
+
+                                  </div>
+                        </div>
+
+                    <!--Email field  -->
+                        <div class="mb-3">
+                            <label for="email-field" class="form-label">Email</label>
+                            <input name="email" type="email" class="form-control"
+                                   data-th-field="*{email}" id="email-field" placeholder="abc@gmail.com" required
+                                   data-th-classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
+                                   data-th-value="${user.email}">
+
+                            <div class="invalid-feedback"
+                                 data-th-if="${#fields.hasErrors('email')}"
+                                 data-th-text="${#fields.errors('email')}"
+                                 style="display: block;"
+                            ></div>
+                        </div>
+
+                    <!-- Password field-->
+                        <div class="mb-3">
+                            <label for="password-field" class="form-label">Password</label>
+                            <input name="password" type="password" class="form-control"
+                                   data-th-field="*{password}" id="password-field" placeholder="Enter here" required
+                                   data-th-classappend="${#fields.hasErrors('password')?'is-invalid':''}">
+
+                            <div class="invalid-feedback"
+                                 data-th-if="${#fields.hasErrors('password')}"
+                                 data-th-text="${#fields.errors('password')}"
+                                 style="display:block;">
+                            </div>
+                        </div>
+
+                    <!--About field-->
+                        <div class="form-group">
+                            <textarea name="about" class="form-control" data-th-field="*{about}"
+                                      placeholder="Enter something about yourself!" rows="5"
+                                      data-th-classappend="${#fields.hasErrors('about')?'is-invalid':''}"
+                                      required data-th-text="${user.about}" ></textarea>
+
+                            <div class="invalid-feedback"
+                                 data-th-if="${#fields.hasErrors('about')}"
+                                 data-th-text="${#fields.errors('about')}"
+                                 style="block;"
+                            ></div>
+                        </div>
+
+                   <!--   terms and condition-->
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="agreement" class="form-check-input" id="agreement"/>
+                            <label for="agreement">Accept terms and conditions</label>
+                        </div>
+
+                    <!-- button-->
+                        <div class="container text-center mt-2">
+                            <button type="submit" class="btn btn-primary text-white">Submit</button>
+                            <button type="reset" class="btn btn-warning ">Reset</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

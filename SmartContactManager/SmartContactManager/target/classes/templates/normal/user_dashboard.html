@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-th-replace="~{normal/userBase::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+<section>
+    <div class="container text-center">
+        <div class="card">
+            <div class="card-body my-5">
+
+                <div class="container text-center">
+                    <img src="#" style="height:200px; width:200px;" class="my_profile_picture"
+                         data-th-src="@{'/image/contact-logo.png'}" alt="profile_pic">
+                </div>
+
+                <h1 class="text-center text-secondary mt-3">Start adding your contact list on cloud</h1>
+
+                <a href="" data-th-href="@{/user/add_contact}" class="btn btn-primary btn-block text-uppercase mt-4">
+                    add contact now
+                </a>
+
+               <!--footer section-->
+                <footer >
+                    <div class="card text-bg-light mb-3 mt-3" style="width:100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Contact us</h5>
+                            <!-- facebook-->
+                            <a
+                                    data-mdb-ripple-init
+                                    class="btn btn-link btn-floating btn-lg text-body m-1"
+                                    href="#!"
+                                    role="button"
+                                    data-mdb-ripple-color="dark"
+                            ><i class="fab fa-facebook-f"></i
+                            ></a>
+                            <!-- Linkedin -->
+                            <a
+                                    data-mdb-ripple-init
+                                    class="btn btn-link btn-floating btn-lg text-body m-1"
+                                    href="
+                        https://www.linkedin.com/in/mohammad-akhtar-babu-85958a241?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                    target="_blank"
+                                    role="button"
+                                    data-mdb-ripple-color="dark"
+                            ><i class="fab fa-linkedin"></i
+                            ></a>
+                            <!-- Github -->
+                            <a
+                                    data-mdb-ripple-init
+                                    class="btn btn-link btn-floating btn-lg text-body m-1"
+                                    href="https://github.com/Akhtar7890"
+                                    target="_blank"
+                                    role="button"
+                                    data-mdb-ripple-color="dark"
+                            ><i class="fab fa-github"></i
+                            ></a>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="card-header text-center">© 2024 Copyright : <span><b>Designed by </b>Mohammad Akhtar Babu</span></div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>
